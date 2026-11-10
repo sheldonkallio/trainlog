@@ -79,7 +79,7 @@ textarea { min-height: 64px; }
 .day-row { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 6px; min-height: 52px; }
 .day-row.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .day-row.dim { opacity: .55; }
-.dr-date { width: 76px; font-size: 14px; flex: none; }
+.dr-date { width: 92px; font-size: 14px; flex: none; white-space: nowrap; }
 .dr-items { flex: 1; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .dr-status { min-width: 40px; text-align: right; font-size: 18px; }
 .chip { font-size: 12px; font-weight: 600; color: #fff; border-radius: 999px; padding: 2px 8px; }
