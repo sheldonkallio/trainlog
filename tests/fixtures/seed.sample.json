@@ -1,0 +1,49 @@
+{
+  "meta": { "name": "Sample block", "start": "2026-11-09", "end": "2026-11-22" },
+  "phases": [
+    { "name": "Re-entry", "fromWeek": 1, "toWeek": 1, "guidance": "RPE 6–7" },
+    { "name": "Build", "fromWeek": 2, "toWeek": 2, "guidance": "RPE 7–8" }
+  ],
+  "weeks": [
+    { "number": 1, "days": [
+      { "date": "2026-11-09", "run": { "type": "Easy Z2", "description": "6 km easy", "km": 6 }, "session": "A" },
+      { "date": "2026-11-10", "run": null, "session": null },
+      { "date": "2026-11-11", "run": { "type": "MP", "description": "2×3 km @ MP", "km": 10 }, "session": "B" },
+      { "date": "2026-11-12", "run": { "type": "Easy Z2", "description": "8 km easy", "km": 8 }, "session": null },
+      { "date": "2026-11-13", "run": null, "session": "C" },
+      { "date": "2026-11-14", "run": { "type": "Long", "description": "16 km long", "km": 16 }, "session": null },
+      { "date": "2026-11-15", "run": null, "session": null }
+    ]},
+    { "number": 2, "days": [
+      { "date": "2026-11-16", "run": { "type": "Easy Z2", "description": "7 km easy", "km": 7 }, "session": "A" },
+      { "date": "2026-11-17", "run": null, "session": null },
+      { "date": "2026-11-18", "run": { "type": "Intervals", "description": "6×800 m", "km": 9 }, "session": "B" },
+      { "date": "2026-11-19", "run": { "type": "Easy Z2", "description": "8 km easy", "km": 8 }, "session": null },
+      { "date": "2026-11-20", "run": null, "session": "C" },
+      { "date": "2026-11-21", "run": { "type": "Long", "description": "18 km long", "km": 18 }, "session": null },
+      { "date": "2026-11-22", "run": null, "session": null }
+    ]}
+  ],
+  "sessionTemplates": {
+    "A": [
+      { "id": "squat", "name": "Back squat", "role": "lowerMain" },
+      { "id": "bench", "name": "Bench press", "role": "upperMain" },
+      { "id": "row", "name": "Row", "role": "upperAcc" },
+      { "id": "plank", "name": "Plank", "role": "core" }
+    ],
+    "B": [
+      { "id": "deadlift", "name": "Deadlift", "role": "lowerMain" },
+      { "id": "ohp", "name": "Overhead press", "role": "upperMain" },
+      { "id": "lunge", "name": "Walking lunge", "role": "lowerAcc" }
+    ],
+    "C": [
+      { "id": "squat", "name": "Back squat", "role": "lowerMain" },
+      { "id": "pullup", "name": "Pull-up", "role": "upperMain" },
+      { "id": "plank", "name": "Plank", "role": "core" }
+    ]
+  },
+  "targetsByPhase": {
+    "Re-entry": { "upperMain": "3×6–8 @ RPE 6–7", "lowerMain": "3×6–8 @ RPE 6–7", "upperAcc": "2×10–12", "lowerAcc": "2×10–12", "core": "2×30–45 s" },
+    "Build": { "upperMain": "4×5–6 @ RPE 7–8", "lowerMain": "4×5–6 @ RPE 7–8", "upperAcc": "3×8–10", "lowerAcc": "3×8–10", "core": "3×45 s" }
+  }
+}
