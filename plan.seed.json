@@ -1,0 +1,154 @@
+{
+  "meta": { "name": "Buriram Marathon block", "start": "2026-11-09", "end": "2027-01-23" },
+  "phases": [
+    { "name": "Re-entry", "fromWeek": 1, "toWeek": 3, "guidance": "RPE 6–7" },
+    { "name": "Deload", "fromWeek": 4, "toWeek": 4, "guidance": "Same loads, half the sets" },
+    { "name": "Build", "fromWeek": 5, "toWeek": 7, "guidance": "Upper RPE 8, legs RPE 7" },
+    { "name": "Deload", "fromWeek": 8, "toWeek": 8, "guidance": "Same loads, half the sets" },
+    { "name": "Build", "fromWeek": 9, "toWeek": 9, "guidance": "Upper RPE 8, legs RPE 7" },
+    { "name": "Taper", "fromWeek": 10, "toWeek": 10, "guidance": "Legs ~70%, upper normal" },
+    { "name": "Race week", "fromWeek": 11, "toWeek": 11, "guidance": "Light only; no legs after Mon" }
+  ],
+  "weeks": [
+    { "number": 1, "days": [
+      { "date": "2026-11-09", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-11-10", "run": {"type": "Threshold", "description": "Threshold 3×8 min, 2 min jog; 15 min warm-up + strides, 10 min cool-down", "km": 9, "minutes": 55 }, "session": null },
+      { "date": "2026-11-11", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-11-12", "run": {"type": "MP", "description": "50 min Z2, last 10 min @ MP", "km": 9.5, "minutes": 60 }, "session": null },
+      { "date": "2026-11-13", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-11-14", "run": {"type": "Long", "description": "16 km easy road long run", "km": 16 }, "session": null },
+      { "date": "2026-11-15", "run": null, "session": null }
+    ]},
+    { "number": 2, "days": [
+      { "date": "2026-11-16", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-11-17", "run": {"type": "Hills", "description": "Hills 8×75 s hard uphill, jog down; warm-up and cool-down", "km": 8 }, "session": null },
+      { "date": "2026-11-18", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-11-19", "run": {"type": "MP", "description": "Z2 with 2×12 min @ MP", "km": 10 }, "session": null },
+      { "date": "2026-11-20", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-11-21", "run": {"type": "Long", "description": "19 km easy road long run", "km": 19 }, "session": null },
+      { "date": "2026-11-22", "run": null, "session": null }
+    ]},
+    { "number": 3, "days": [
+      { "date": "2026-11-23", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-11-24", "run": {"type": "Threshold", "description": "Threshold 4×8 min, 2 min jog; warm-up and cool-down", "km": 10 }, "session": null },
+      { "date": "2026-11-25", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-11-26", "run": {"type": "MP", "description": "3×15 min @ MP, 3 min easy; warm-up and cool-down", "km": 12 }, "session": null },
+      { "date": "2026-11-27", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-11-28", "run": {"type": "Long", "description": "22 km, last 4 km @ MP", "km": 22 }, "session": null },
+      { "date": "2026-11-29", "run": null, "session": null }
+    ]},
+    { "number": 4, "days": [
+      { "date": "2026-11-30", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-12-01", "run": {"type": "Threshold", "description": "Cutback: threshold 2×10 min; warm-up and cool-down", "km": 8 }, "session": null },
+      { "date": "2026-12-02", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 7, "minutes": 45 }, "session": "B" },
+      { "date": "2026-12-03", "run": {"type": "Easy Z2", "description": "40 min easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": null },
+      { "date": "2026-12-04", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-12-05", "run": {"type": "Long", "description": "16 km easy road long run", "km": 16 }, "session": null },
+      { "date": "2026-12-06", "run": null, "session": null }
+    ]},
+    { "number": 5, "days": [
+      { "date": "2026-12-07", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-12-08", "run": {"type": "Intervals", "description": "VO2 5×1000 m @ 5K effort, 2–3 min jog; warm-up and cool-down", "km": 10 }, "session": null },
+      { "date": "2026-12-09", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-12-10", "run": {"type": "MP", "description": "2×20 min @ MP; warm-up and cool-down", "km": 12 }, "session": null },
+      { "date": "2026-12-11", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-12-12", "run": {"type": "Long", "description": "25 km easy road long run", "km": 25 }, "session": null },
+      { "date": "2026-12-13", "run": null, "session": null }
+    ]},
+    { "number": 6, "days": [
+      { "date": "2026-12-14", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-12-15", "run": {"type": "Threshold", "description": "25 min continuous threshold; warm-up and cool-down", "km": 10 }, "session": null },
+      { "date": "2026-12-16", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-12-17", "run": {"type": "MP", "description": "10 km @ MP within a 14 km run", "km": 14 }, "session": null },
+      { "date": "2026-12-18", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-12-19", "run": {"type": "Long", "description": "28 km, last 5 km steady", "km": 28 }, "session": null },
+      { "date": "2026-12-20", "run": null, "session": null }
+    ]},
+    { "number": 7, "days": [
+      { "date": "2026-12-21", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-12-22", "run": {"type": "Intervals", "description": "VO2 6×1000 m @ 5K effort, 2–3 min jog; warm-up and cool-down", "km": 11 }, "session": null },
+      { "date": "2026-12-23", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2026-12-24", "run": {"type": "MP", "description": "12 km @ MP with warm-up and cool-down", "km": 16 }, "session": null },
+      { "date": "2026-12-25", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2026-12-26", "run": {"type": "Long", "description": "30 km easy, no walking", "km": 30 }, "session": null },
+      { "date": "2026-12-27", "run": null, "session": null }
+    ]},
+    { "number": 8, "days": [
+      { "date": "2026-12-28", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2026-12-29", "run": {"type": "Threshold", "description": "Cutback: threshold 3×10 min; warm-up and cool-down", "km": 10 }, "session": null },
+      { "date": "2026-12-30", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 7, "minutes": 45 }, "session": "B" },
+      { "date": "2026-12-31", "run": {"type": "Easy Z2", "description": "40 min easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": null },
+      { "date": "2027-01-01", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2027-01-02", "run": {"type": "Long", "description": "20 km with 8 km @ MP", "km": 20 }, "session": null },
+      { "date": "2027-01-03", "run": null, "session": null }
+    ]},
+    { "number": 9, "days": [
+      { "date": "2027-01-04", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2027-01-05", "run": {"type": "Threshold", "description": "Peak: threshold 2×15 min; warm-up and cool-down", "km": 11 }, "session": null },
+      { "date": "2027-01-06", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 9, "minutes": 60 }, "session": "B" },
+      { "date": "2027-01-07", "run": {"type": "MP", "description": "14 km @ MP within an 18 km run", "km": 18 }, "session": null },
+      { "date": "2027-01-08", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2027-01-09", "run": {"type": "Long", "description": "33 km easy, full race-fuel rehearsal", "km": 33 }, "session": null },
+      { "date": "2027-01-10", "run": null, "session": null }
+    ]},
+    { "number": 10, "days": [
+      { "date": "2027-01-11", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 5, "minutes": 35 }, "session": "A" },
+      { "date": "2027-01-12", "run": {"type": "Threshold", "description": "Taper: threshold 4×6 min; warm-up and cool-down", "km": 9 }, "session": null },
+      { "date": "2027-01-13", "run": {"type": "Easy Z2", "description": "Zone 2, conversational", "km": 7, "minutes": 45 }, "session": "B" },
+      { "date": "2027-01-14", "run": {"type": "MP", "description": "8 km @ MP with warm-up and cool-down", "km": 12 }, "session": null },
+      { "date": "2027-01-15", "run": {"type": "Easy Z2", "description": "Easy + 6×20 s strides", "km": 6, "minutes": 40 }, "session": "C" },
+      { "date": "2027-01-16", "run": {"type": "Long", "description": "20 km, last 6 km @ MP", "km": 20 }, "session": null },
+      { "date": "2027-01-17", "run": null, "session": null }
+    ]},
+    { "number": 11, "days": [
+      { "date": "2027-01-18", "run": {"type": "Recovery", "description": "Optional very easy recovery run", "km": 4.5, "minutes": 30 }, "session": "A" },
+      { "date": "2027-01-19", "run": {"type": "Threshold", "description": "3×3 min threshold + strides; warm-up and cool-down", "km": 7 }, "session": null },
+      { "date": "2027-01-20", "run": {"type": "Easy Z2", "description": "Easy, conversational", "km": 6, "minutes": 40 }, "session": "B" },
+      { "date": "2027-01-21", "run": {"type": "Easy Z2", "description": "30 min easy with 3×2 min @ MP", "km": 5, "minutes": 30 }, "session": null },
+      { "date": "2027-01-22", "run": {"type": "Recovery", "description": "Shakeout 20 min + 4 strides", "km": 3, "minutes": 20 }, "session": null },
+      { "date": "2027-01-23", "run": {"type": "Race", "description": "Buriram Marathon — run the whole way; first 10 km 5–10 s/km slower than MP", "km": 42.2 }, "session": null }
+    ]}
+  ],
+  "sessionTemplates": {
+    "A": [
+      { "id": "back-squat", "name": "Back squat", "role": "lowerMain" },
+      { "id": "bench-press", "name": "Bench press", "role": "upperMain" },
+      { "id": "incline-db-press", "name": "Incline DB press", "role": "upperAcc" },
+      { "id": "walking-lunge", "name": "Walking lunge", "role": "lowerAcc" },
+      { "id": "overhead-press", "name": "Standing overhead press", "role": "upperAcc" },
+      { "id": "dips-pushdown", "name": "Dips / cable pushdown", "role": "upperAcc" },
+      { "id": "single-leg-calf-raise", "name": "Single-leg calf raise", "role": "lowerAcc" },
+      { "id": "pallof-press", "name": "Pallof press", "role": "core" }
+    ],
+    "B": [
+      { "id": "romanian-deadlift", "name": "Romanian deadlift", "role": "lowerMain" },
+      { "id": "weighted-pull-up", "name": "Weighted pull-up", "role": "upperMain" },
+      { "id": "chest-supported-row", "name": "Chest-supported / barbell row", "role": "upperAcc" },
+      { "id": "bulgarian-split-squat", "name": "Bulgarian split squat / step-up", "role": "lowerAcc" },
+      { "id": "face-pull", "name": "Face pull", "role": "upperAcc" },
+      { "id": "curl", "name": "Barbell / DB curl", "role": "upperAcc" },
+      { "id": "copenhagen-plank", "name": "Copenhagen plank", "role": "core" },
+      { "id": "side-plank", "name": "Side plank", "role": "core" }
+    ],
+    "C": [
+      { "id": "incline-barbell-bench", "name": "Incline barbell bench", "role": "upperMain" },
+      { "id": "lat-pulldown", "name": "Lat pulldown / pull-up", "role": "upperAcc" },
+      { "id": "one-arm-db-row", "name": "One-arm DB row", "role": "upperAcc" },
+      { "id": "landmine-press", "name": "Landmine / DB shoulder press", "role": "upperAcc" },
+      { "id": "curl", "name": "Barbell / DB curl", "role": "upperAcc" },
+      { "id": "triceps-extension", "name": "Triceps extension", "role": "upperAcc" },
+      { "id": "ab-wheel", "name": "Ab wheel", "role": "core" },
+      { "id": "hanging-knee-raise", "name": "Hanging knee raise", "role": "core" },
+      { "id": "suitcase-carry", "name": "Suitcase carry", "role": "core" },
+      { "id": "tibialis-raise", "name": "Tibialis raise", "role": "lowerAcc" },
+      { "id": "hip-airplane", "name": "Hip airplane", "role": "core" }
+    ]
+  },
+  "targetsByPhase": {
+    "Re-entry": { "upperMain": "3×6–8 @ RPE 6–7", "lowerMain": "3×6–8 @ RPE 6–7", "upperAcc": "2×10–12", "lowerAcc": "2×10–12", "core": "3×10–12 or 30 s" },
+    "Deload": { "upperMain": "2×6–8 @ last week's load", "lowerMain": "2×5 @ last week's load", "upperAcc": "2×10–12", "lowerAcc": "2×10–12", "core": "2×10–12 or 30 s" },
+    "Build": { "upperMain": "4×5–6 @ RPE 8", "lowerMain": "3×5 @ RPE 7", "upperAcc": "3×8–12", "lowerAcc": "3×8–12", "core": "3×10–12 or 30–45 s" },
+    "Taper": { "upperMain": "3×5–6 @ RPE 7–8", "lowerMain": "2×3–5 @ ~70%", "upperAcc": "3×8–12", "lowerAcc": "2×8 light", "core": "3×10–12 or 30 s" },
+    "Race week": { "upperMain": "2×5 @ ~60%", "lowerMain": "2×5 @ ~60%", "upperAcc": "2×10 light", "lowerAcc": "1×10 light", "core": "1×10 or 30 s" }
+  }
+}

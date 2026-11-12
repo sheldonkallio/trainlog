@@ -1,7 +1,7 @@
 // Week screen: pick a week, see totals, see each day's plan and status. Read-only.
 import { h } from "./dom.js";
 import { dayName, formatShort } from "../lib/dates.js";
-import { resolveDay, weekRange, phaseForWeek, weekForDate, intensityOf } from "../lib/plan.js";
+import { resolveDay, weekRange, phaseForWeek, phaseColor, weekForDate, intensityOf } from "../lib/plan.js";
 import { dayStatus, weekTotals, formatDuration } from "../lib/logs.js";
 import { backupSection } from "./backup.js";
 
@@ -38,7 +38,6 @@ export function renderWeek(app, n) {
   const { start, end } = weekRange(week);
   const phase = phaseForWeek(plan, week.number);
   const todayWeek = weekForDate(plan, app.today)?.number ?? null;
-  const phaseIndex = p => Math.max(0, plan.phases.indexOf(p)) % 4;
 
   return h("div", { class: "screen" },
     h("header", { class: "day-head" },
@@ -52,7 +51,7 @@ export function renderWeek(app, n) {
         todayWeek != null && todayWeek !== week.number ? h("button", { class: "link-btn", onclick: () => app.go("week", todayWeek) }, "This week") : null)),
     h("div", { class: "week-strip" },
       plan.weeks.map(w => h("button", {
-        class: `wk ph${phaseIndex(phaseForWeek(plan, w.number))}${w.number === week.number ? " current" : ""}${w.number === todayWeek ? " today" : ""}`,
+        class: `wk ph${phaseColor(plan, phaseForWeek(plan, w.number))}${w.number === week.number ? " current" : ""}${w.number === todayWeek ? " today" : ""}`,
         "aria-label": `Week ${w.number}`,
         onclick: () => app.go("week", w.number),
       }, w.number))),

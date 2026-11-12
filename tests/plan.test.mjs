@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { adaptSeed, weekForDate, weekRange, phaseForWeek, targetFor, exercisesFor, intensityOf } from "../lib/plan.js";
+import { adaptSeed, weekForDate, weekRange, phaseForWeek, phaseColor, targetFor, exercisesFor, intensityOf } from "../lib/plan.js";
 
 const raw = () => JSON.parse(readFileSync(new URL("./fixtures/seed.sample.json", import.meta.url), "utf8"));
 const plan = adaptSeed(raw());
@@ -64,4 +64,14 @@ test("intensityOf groups run types by name", () => {
   assert.equal(intensityOf("Hill repeats"), "interval");
   assert.equal(intensityOf("Strides"), "other");
   assert.equal(intensityOf(undefined), "other");
+});
+
+test("phaseColor gives a repeated phase name the same colour", () => {
+  const p = { phases: [
+    { name: "Re-entry", fromWeek: 1, toWeek: 3 }, { name: "Deload", fromWeek: 4, toWeek: 4 },
+    { name: "Build", fromWeek: 5, toWeek: 7 }, { name: "Deload", fromWeek: 8, toWeek: 8 },
+    { name: "Build", fromWeek: 9, toWeek: 9 }, { name: "Taper", fromWeek: 10, toWeek: 10 },
+    { name: "Race week", fromWeek: 11, toWeek: 11 }] };
+  assert.deepEqual([1, 4, 5, 8, 9, 10, 11].map(n => phaseColor(p, phaseForWeek(p, n))), [0, 1, 2, 1, 2, 3, 4]);
+  assert.equal(phaseColor(p, null), 0);
 });

@@ -2,14 +2,14 @@
   --bg: #f6f7fb; --card: #fff; --ink: #1b1f2a; --muted: #6b7280; --line: #e3e6ee;
   --accent: #2b4aa8; --accent-soft: #e8edfa; --ok: #1f9d55; --danger: #c0392b;
   --easy: #2e9e5b; --long: #2f6fd1; --tempo: #e08a1e; --interval: #d14343; --other: #8a8f9c;
-  --ph0: #dfe7fb; --ph1: #fde8cf; --ph2: #f9d9d9; --ph3: #dcefe2;
+  --ph0: #dfe7fb; --ph1: #fde8cf; --ph2: #f9d9d9; --ph3: #dcefe2; --ph4: #ece0f7;
   --warn-bg: #fff4d6; --warn-ink: #7a5300;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #12141a; --card: #1c1f27; --ink: #e8eaf0; --muted: #9aa1b2; --line: #2c303b;
     --accent: #8fa8ff; --accent-soft: #263055;
-    --ph0: #26304d; --ph1: #4a3a22; --ph2: #4a2a2a; --ph3: #24402e;
+    --ph0: #26304d; --ph1: #4a3a22; --ph2: #4a2a2a; --ph3: #24402e; --ph4: #3a2a4a;
     --warn-bg: #3d3216; --warn-ink: #f3d58a;
   }
 }
@@ -74,7 +74,7 @@ textarea { min-height: 64px; }
 .wk { flex: 1; min-height: 32px; border-radius: 6px; font-size: 11px; color: var(--ink); border: 2px solid transparent; }
 .wk.current { border-color: var(--accent); font-weight: 700; }
 .wk.today { text-decoration: underline; }
-.ph0 { background: var(--ph0); } .ph1 { background: var(--ph1); } .ph2 { background: var(--ph2); } .ph3 { background: var(--ph3); }
+.ph0 { background: var(--ph0); } .ph1 { background: var(--ph1); } .ph2 { background: var(--ph2); } .ph3 { background: var(--ph3); } .ph4 { background: var(--ph4); }
 .totals { font-size: 14px; color: var(--muted); text-align: center; margin: 0 0 12px; font-variant-numeric: tabular-nums; }
 .day-row { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 6px; min-height: 52px; }
 .day-row.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
