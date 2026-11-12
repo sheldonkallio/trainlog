@@ -2,8 +2,8 @@
 import { h } from "./dom.js";
 import { openSheet } from "./sheet.js";
 import { addDays, formatDay } from "../lib/dates.js";
-import { resolveDay, isLogged } from "../lib/plan.js";
-import { setRunLog, clearRunLog, runSummary, parseNum, durationFromParts } from "../lib/logs.js";
+import { resolveDay, isLogged, exercisesFor, targetFor } from "../lib/plan.js";
+import { setRunLog, clearRunLog, runSummary, parseNum, durationFromParts, exerciseRows, toggleSet, editSet, removeSet, addSet, setExerciseRpe, setStrengthNotes } from "../lib/logs.js";
 import { backupReminder } from "../lib/store.js";
 import { backUp } from "./backup.js";
 
@@ -102,7 +102,73 @@ function runSheet(app, iso) {
   });
 }
 
+const RPE_CHOICES = [6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10];
+const fmtSet = r => `${r.kg ?? "–"} kg × ${r.reps ?? "–"}`;
+
 function strengthCard(app, day) {
   const card = day.strength;
-  return cardShell(app, day, card, ["🏋️ Session ", card.item.session], h("p", { class: "muted" }, "Strength logging comes in the next step."));
+  const session = card.item.session;
+  const iso = day.date;
+  const exercises = exercisesFor(app.plan, session);
+  const blocks = exercises.map(ex => {
+    const target = targetFor(app.plan, day.phase?.name, ex.role);
+    return { ex, target, rows: exerciseRows(app.data, iso, ex.id, target) };
+  });
+  const total = blocks.reduce((n, b) => n + b.rows.length, 0);
+  const done = blocks.reduce((n, b) => n + b.rows.filter(r => r.done).length, 0);
+  const notes = h("textarea", { class: "notes", value: app.data.strengthLogs[iso]?.notes ?? "",
+    onchange: e => app.commit(setStrengthNotes(app.data, iso, session, e.target.value.trim()), { rerender: false }) });
+  const body = [
+    exercises.length ? null : h("p", { class: "muted" }, `Session ${session} has no exercises in the plan.`),
+    blocks.map(b => exerciseBlock(app, iso, session, b)),
+    exercises.length ? h("label", { class: "field" }, "Session notes", notes) : null,
+  ];
+  return cardShell(app, day, card, ["🏋️ Session ", session, h("span", { class: "tag" }, `${done}/${total} sets`)], body);
+}
+
+function exerciseBlock(app, iso, session, { ex, target, rows }) {
+  const rpe = app.data.strengthLogs[iso]?.exercises?.[ex.id]?.rpe ?? null;
+  const update = fn => app.commit(fn(app.data));
+  return h("div", { class: "exercise" },
+    h("div", { class: "ex-head" }, h("b", {}, ex.name), target ? h("span", { class: "target" }, target) : null),
+    rows.map((r, i) => h("div", { class: "set" + (r.done ? " done" : "") },
+      h("span", { class: "set-n" }, i + 1),
+      h("button", { class: "set-val", "aria-label": `Edit set ${i + 1}`, onclick: () => setSheet(app, iso, session, ex, target, i, r) }, fmtSet(r)),
+      h("button", {
+        class: "check" + (r.done ? " on" : ""),
+        "aria-label": r.done ? `Undo set ${i + 1}` : `Log set ${i + 1}`,
+        onclick: () => (!r.done && r.kg == null && r.reps == null)
+          ? setSheet(app, iso, session, ex, target, i, r)
+          : update(d => toggleSet(d, iso, session, ex.id, target, i)),
+      }, r.done ? "✓" : ""))),
+    h("div", { class: "ex-foot" },
+      h("button", { class: "link-btn", onclick: () => update(d => addSet(d, iso, session, ex.id, target)) }, "+ set"),
+      h("select", { "aria-label": `${ex.name} RPE`,
+        onchange: e => update(d => setExerciseRpe(d, iso, session, ex.id, target, e.target.value ? Number(e.target.value) : null)) },
+        h("option", { value: "" }, "RPE –"),
+        RPE_CHOICES.map(v => h("option", { value: String(v), selected: rpe === v }, `RPE ${v}`)))));
+}
+
+function setSheet(app, iso, session, ex, target, i, row) {
+  openSheet(`${ex.name} · set ${i + 1}`, close => {
+    const kg = h("input", { type: "text", inputMode: "decimal", value: row.kg ?? "", "aria-label": "Weight in kg" });
+    const reps = h("input", { type: "text", inputMode: "numeric", value: row.reps ?? "", "aria-label": "Reps" });
+    const bump = (input, delta) => {
+      const v = Math.max(0, (parseNum(input.value) ?? 0) + delta);
+      input.value = String(Math.round(v * 100) / 100);
+    };
+    const stepper = (label, input, step) => h("div", { class: "stepper" },
+      h("span", {}, label),
+      h("button", { "aria-label": `${label} minus ${step}`, onclick: () => bump(input, -step) }, `−${step}`),
+      input,
+      h("button", { "aria-label": `${label} plus ${step}`, onclick: () => bump(input, step) }, `+${step}`));
+    const save = () => {
+      if (app.commit(editSet(app.data, iso, session, ex.id, target, i, { kg: parseNum(kg.value), reps: parseNum(reps.value) }))) close();
+    };
+    return h("div", {},
+      stepper("kg", kg, 2.5),
+      stepper("reps", reps, 1),
+      h("button", { class: "btn", onclick: save }, "Save set ✓"),
+      h("button", { class: "btn btn-danger-quiet", onclick: () => { if (app.commit(removeSet(app.data, iso, session, ex.id, target, i))) close(); } }, "Remove set"));
+  });
 }
